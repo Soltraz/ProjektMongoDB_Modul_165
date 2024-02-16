@@ -56,7 +56,10 @@ public class Kunde {
 
     private void displayAllData() {
         for (Document doc : collection.find()) {
-            System.out.println(doc.toJson());
+            for (String key : doc.keySet()) {
+                System.out.println(key + ": " + doc.get(key));
+            }
+            System.out.println();
         }
     }
 

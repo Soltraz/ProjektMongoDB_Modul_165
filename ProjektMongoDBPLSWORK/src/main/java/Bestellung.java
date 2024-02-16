@@ -55,10 +55,12 @@ public class Bestellung {
 
     private void displayAllData() {
         for (Document doc : collection.find()) {
-            System.out.println(doc.toJson());
+            for (String key : doc.keySet()) {
+                System.out.println(key + ": " + doc.get(key));
+            }
+            System.out.println();
         }
     }
-
     public void displaySubSubMenu(String option) {
         while (true) {
             System.out.println("Sie haben " + option + " ausgewählt.");
